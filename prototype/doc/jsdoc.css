@@ -1,0 +1,92 @@
+* {
+margin: 0px;
+padding: 0px;
+font-family: "Trebuchet MS","MS Trebuchet","Lucida Sans",sans-serif;
+}
+div {
+font-size: 15px;
+margin-top: 20px;
+}
+h1 {
+margin-bottom: 50px;
+}
+body {
+margin: 10px;
+background-color: white;
+}
+div.intro {
+margin-left:300px;
+}
+div.content {
+padding :10px;
+margin-left :300px;
+margin-top: 20px;
+border :1px solid black;
+}
+div.foa {
+background-color:#DDDDDD;
+border:1px solid black;
+margin-left:-20px;
+margin-top:0px;
+padding:10px 23px;
+}
+div.foacontent {
+background-color:white;
+padding :3px;
+margin-bottom: 40px;
+}
+div.foacontent div {
+margin-top: 0px;
+margin-bottom: 10px;
+}
+div#menu {
+float:left;
+width:300px;
+margin-top: 0px;
+}
+div#menu ul{
+margin-left: 20px;
+list-style-type: none;
+margin-top: 20px;
+font-weight: bold;
+}
+div#menu ul ul{
+margin-top: 0px;
+list-style-type: square;
+font-weight: normal;
+}
+div.foacontent ul, div.intro ul {
+margin-left: 20px;
+list-style-type: square;
+}
+div#download{
+margin-top: 20px;
+margin-bottom: 20px;
+}
+a {
+color: #996600;
+}
+a:hover{
+color: #669933;
+}
+pre {
+font-family: Consolas,'andale mono','monotype.com','lucida console',monospace;
+font-style: normal;
+font-variant: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: normal;
+font-size-adjust: none;
+font-stretch: normal;
+
+}
+table, pre {
+padding: 20px;
+margin-top: 5px;
+margin-bottom: 20px;
+background-color: white;
+border: 1px solid black;
+}
+td {
+margin-right: 10px;
+}

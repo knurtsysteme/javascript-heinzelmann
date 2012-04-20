@@ -1,0 +1,96 @@
+/************************************************************************-->
+<!--* Revenge of the Menu Bar Demo                                          *-->
+<!--*                                                                       *-->
+<!--* Copyright 2000-2004 by Mike Hall                                      *-->
+<!--* Please see http://www.brainjar.com for terms of use.                  *-->
+Thank you Mike Hall! Please find the entire version of my version 
+(incl. PHP5-Classes) here:
+http://www.knurt.de/code/archiv/brainjarmenubar.zip
+(from KNURT Systeme 2008)
+ ************************************************************************/
+div.menuBar,
+div.menuBar span.menuButton,
+div.menu,
+div.menu div.menuItem {
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 8pt;
+  font-style: normal;
+  font-weight: normal;
+  color: MenuText;
+}
+
+div.menuBar {
+  background-color: Menu;
+  border: 2px solid;
+  border-color: #f0f0f0 #909090 #909090 #f0f0f0;
+  padding: 4px 2px 4px 2px;
+  text-align: left;
+  width: 100%;
+}
+
+div.menuBar span.menuButton {
+  background-color: transparent;
+  border: 1px solid Menu;
+  color: MenuText;
+  cursor: pointer;
+  left: 0px;
+  margin: 1px;
+  padding: 2px 6px 2px 6px;
+  position: relative;
+  text-decoration: none;
+  top: 0px;
+  z-index: 100;
+}
+
+div.menuBar span.menuButton:hover {
+  background-color: transparent;
+  border-color: #f0f0f0 #909090 #909090 #f0f0f0;
+  color: MenuText;
+}
+
+div.menuBar span.menuButtonActive,
+div.menuBar span.menuButtonActive:hover {
+  background-color: Highlight;
+  border-color: #909090 #f0f0f0 #f0f0f0 #909090;
+  color: HighlightText;
+  left: 1px;
+  top: 1px;
+}
+
+div.menu {
+  background-color: Menu;
+  border: 2px solid;
+  border-color: #f0f0f0 #909090 #909090 #f0f0f0;
+  left: 0px;
+  padding: 0px 1px 1px 0px;
+  position: absolute;
+  top: 0px;
+  visibility: hidden;
+  z-index: 101;
+}
+
+div.menu div.menuItem {
+  color: MenuText;
+  cursor: pointer;
+  display: block;
+  padding: 3px 1em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+div.menu div.menuItem:hover, div.menu div.menuItemHighlight {
+  background-color: Highlight;
+  color: HighlightText;
+}
+
+div.menu div.menuItem span.menuItemText {}
+
+div.menu div.menuItem span.menuItemArrow {
+  margin-right: -.75em;
+}
+
+div.menu div.menuItemSep {
+  border-top: 1px solid #909090;
+  border-bottom: 1px solid #f0f0f0;
+  margin: 4px 2px;
+}

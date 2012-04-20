@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>KeyAction Demo</title>
+		<script type="text/javascript" src="pathto/jsscrollwork/KeyAction.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById('testarea').onkeyup = function(e) {
+					document.getElementById('keycode').innerHTML = KeyAction.getKeyCode(e);
+					document.getElementById('enter').innerHTML = KeyAction.isEnter(e) ? 'Y' : 'N';
+					document.getElementById('tab').innerHTML = KeyAction.isTab(e) ? 'Y' : 'N';
+					document.getElementById('control').innerHTML = KeyAction.isControl(e) ? 'Y' : 'N';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			Key Code: <span id="keycode"></span><br />
+			Enter: <span id="enter"></span><br />
+			Tab: <span id="tab"></span><br />
+			Control: <span id="control"></span>
+		</div>
+		<div>
+			Type in something here:<br />
+			<textarea id="testarea"></textarea>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>RegEx Demo</title>
+		<script type="text/javascript" src="pathto/prototype.js"></script>
+		<script type="text/javascript" src="pathto/jsscrollwork/RegEx.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+					$('testarea').onkeyup = function(){
+					col = RegEx.is.nothingOrWhitespace($F('testarea')) ? 'green' : 'red';
+					$('is_nothingOrWhitespace').setStyle({color: col});
+					col = RegEx.is.regularEmail($F('testarea')) ? 'green' : 'red';
+					$('is_regularEmail').setStyle({color: col});
+					col = RegEx.is.date_YYYYMMDD($F('testarea')) ? 'green' : 'red';
+					$('is_date_YYYYMMDD').setStyle({color: col});
+					col = RegEx.contains.whitespace($F('testarea')) ? 'green' : 'red';
+					$('contains_whitespace').setStyle({color: col});
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="is_nothingOrWhitespace">Is nothing or whitespace</div>
+		<div id="is_regularEmail">Is a regular EMail</div>
+		<div id="is_date_YYYYMMDD">Is a date (YYYYMMDD)</div>
+		<div id="contains_whitespace">Contains whitespace</div>
+		<div>
+			<label for="testarea">Type in something here:</label>
+			<input type="text" id="testarea"></input>
+		</div>
+	</body>
+</html>

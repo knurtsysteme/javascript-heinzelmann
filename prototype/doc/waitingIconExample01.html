@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>WaitingIcon Demo</title>
+		<script type="text/javascript" src="pathto/prototype.js"></script>
+		<script type="text/javascript" src="pathto/jsscrollwork/Browser.js"></script>
+		<script type="text/javascript" src="pathto/jsscrollwork/ScrollingOffset.js"></script>
+		<script type="text/javascript" src="pathto/jsscrollwork/WaitingIcon.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				WaitingIcon.init('<h1>PLEASE WAIT</h1>');
+				WaitingIcon.show();
+				window.setTimeout(WaitingIcon.hide, 3000); // show it 3 seconds
+			}
+		</script>
+	</head>
+	<body></body>
+</html>

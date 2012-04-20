@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>dialogConfirm.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="./../../../src/scrollwork.js" type="text/javascript"></script>
+  <script src="./../../../lib/prototype/prototype.js" type="text/javascript"></script>
+  <script src="unittest.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../test.css" type="text/css" />
+</head>
+<body>
+<h1>Input Connector</h1>
+<p>
+  Tests the literal <code>InputConnector</code>
+</p>
+
+<!-- Log output -->
+<div id="testlog"></div>
+
+<!-- Tests follow -->
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+
+	new Test.Unit.Runner
+	(
+		{
+			testCreate : function()
+			{ with(this) {
+					assertNotNull(InputConnector);
+					assertNotNull(InputConnector.connect);
+			}},
+			testConnectOnlyIf_false : function()
+			{ with(this) {
+					var foo_b = $$('option[value=foo_b]')[0];
+					var bar_b = $$('option[value=bar_b]')[0];
+					InputConnector.connect(foo_b, bar_b);
+					assertEqual(false, foo_b.selected);
+					assertEqual(false, bar_b.selected);
+					foo_b.selected = true;
+					assertEqual(foo_b.selected == false);
+					assertEqual(bar_b.selected == false);
+			}},
+			testSimpleConnect : function()
+			{ with(this)
+				{
+					var foo_b = $$('option[value=foo_b]')[0];
+					var bar_b = $$('option[value=bar_b]')[0];
+					InputConnector.connect(foo_b, bar_b);
+					assertEqual(false, foo_b.selected);
+					assertEqual(false, bar_b.selected);
+					foo_b.selected = true;
+					assertEqual(false, foo_b.selected);
+					assertEqual(false, bar_b.selected);
+				}
+			}
+		},
+		"testlog"
+	);
+	
+// ]]>
+</script>
+
+<select id="foo" name="foo">
+	<option value="foo_a">please choose</option>
+	<option value="foo_b" id="foo_b">foo_b</option>
+	<option value="foo_c">foo_c</option>
+</select>
+
+<select id="bar" name="bar">
+	<option value="bar_a">please choose</option>
+	<option value="bar_b">bar_b</option>
+	<option value="bar_c">bar_c</option>
+</select>
+
+</body>
+</html>

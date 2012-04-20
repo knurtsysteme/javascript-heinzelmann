@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>ScrollbarObserver Demo</title>
+		<script type="text/javascript" src="pathto/prototype.js"></script>
+		<script type="text/javascript" src="pathto/jsscrollwork/ScrollingOffset.js"></script>
+		<script type="text/javascript" src="pathto/jsscrollwork/ScrollbarObserver.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var so = new ScrollbarObserver(100, {
+					onYChange : function(y) {
+						document.getElementById('posy').innerHTML = y;
+					},
+					onXChange : function(x) {
+						document.getElementById('posx').innerHTML = x;
+					},
+					onChange : function(x, y) {
+						document.getElementById('posxy').innerHTML = '('+x+','+y+')';
+					}
+				});
+				$('stop').onclick = function(){so.stop()};
+				$('start').onclick = function(){so.start()};
+			}
+		</script>
+	</head>
+	<body>
+		<div style="position: fixed">
+			Pos Y: <span id="posy"></span> Pixel<br />
+			Pos X: <span id="posx"></span> Pixel<br />
+			Pos (X,Y): <span id="posxy"></span> Pixel<br />
+			<button id="stop">Stop observing</button>
+			<button id="start">Start observing</button>
+		</div>
+		<div style="height: 10000px; width: 10000px;"></div>
+	</body>
+</html>

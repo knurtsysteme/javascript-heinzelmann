@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>AnchorTagger.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="./../../../lib/prototype/prototype.js" type="text/javascript"></script>
+  <script src="./../../../src/prototype-scrollwork.js" type="text/javascript"></script>
+  <script src="unittest.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../test.css" type="text/css" />
+</head>
+<body>
+<h1>AnchorTagger</h1>
+
+<!-- Log output -->
+<div id="testlog"></div>
+
+<!-- Tests follow -->
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+
+	new Test.Unit.Runner
+	(
+		{
+			testGlobal : function()
+			{ with(this)
+				{
+					var at = new AnchorTagger();
+					assertNotNull(at);
+
+					at.tagLocal(function(el){el.setStyle({color: 'green'});});
+					assertEqual('green', $('local1').getStyle('color'), "test 1");
+					assertEqual('green', $('local2').getStyle('color'), "test 2");
+					assertEqual('green', $('local3').getStyle('color'), "test 3");
+					assertNotEqual('green', $('foreign1').getStyle('color'), "test 4");
+					assertNotEqual('green', $('foreign2').getStyle('color'), "test 5");
+					assertNotEqual('green', $('foreign3').getStyle('color'), "test 6");
+					
+					at.tagForeign(function(el){el.setStyle({color: 'orange'});});
+					assertEqual('green', $('local1').getStyle('color'), "test 7");
+					assertEqual('green', $('local2').getStyle('color'), "test 8");
+					assertEqual('green', $('local3').getStyle('color'), "test 9");
+					assertEqual('orange', $('foreign1').getStyle('color'), "test 10");
+					assertEqual('orange', $('foreign2').getStyle('color'), "test 11");
+					assertEqual('orange', $('foreign3').getStyle('color'), "test 12");
+
+				}
+			}
+		},
+		"testlog"
+	);
+	
+// ]]>
+</script>
+
+<div id="container">
+	<hr />
+	<a href="/foo" id="local1">/foo</a>
+	<hr />
+	<a href="lala.html" id="local2">#foo</a>
+	<hr />
+	<a href="#foo" id="local3">#foo</a>
+	<hr />
+	<a href="http://localhost/foo" id="foreign1">http://localhost/foo</a>
+	<hr />
+	<a href="https://www.google.de" id="foreign2">https://www.google.de</a>
+	<hr />
+	<div id="inner">
+		<a href="http:/localhost/foo" id="foreign3">inner: http:/localhost/foo</a>
+	</div>
+</div>
+
+</body>
+</html>

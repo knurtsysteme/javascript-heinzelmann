@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>JsDoc: JavaScript Scrollwork</title><meta name="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="jsdoc.css" /><meta name="copyright" content="KNURT Systeme"><meta name="author" content="Daniel Oltmanns"><meta name="title" content="JavaScript Scrollwork"><meta name="description" content="JavaScript Scrollwork is a collection of goodies, making life easier and other things, that pimp your webapplication or webpage."><meta name="abstract" content="JavaScript Scrollwork is a collection of goodies, making life easier and other things, that pimp your webapplication or webpage"><meta name="language" content="English"></head><body><div id="menu"><img width="280px" src="jsscrollwork.jpg" /><ul><li><a href="index.html">Startpage</a><p>&nbsp;</p></li><li>Classes<ul><li><a href="anchortagger.html">AnchorTagger</a></li><li><a href="scrollbarobserver.html">ScrollbarObserver</a></li></ul></li></ul><ul><li>Literals<ul><li><a href="ajaxseparator.html">AjaxSeparator</a></li><li><a href="browser.html">Browser</a></li><li><a href="container.html">Container</a></li><li><a href="formcookiesaver.html">FormCookieSaver</a></li><li><a href="keyaction.html">KeyAction</a></li><li><a href="picswitch.html">Picswitch</a></li><li><a href="regex.html">RegEx</a></li><li><a href="scrollingoffset.html">ScrollingOffset</a></li><li><a href="waitingicon.html">WaitingIcon</a></li></ul></li></ul><ul><li>Info<ul><li><a href="license.html">license</a></li><li><a href="prototypeutils_changed.html">prototypeUtils_changed</a></li><li>Version 0.20080905</li><li>Copyright (c) 2006-2008<br /><a href="http://www.knurt.de">KNURT Systeme</a></li></ul></li></ul></div><div class="intro"><h2>Class: AnchorTagger</h2><div id="download"><a href="./AnchorTagger.js">Download AnchorTagger.js</a></div><div>
+		since: 0.20080823<br />
+		requires: prototype<br />
+		author: <a href="mailto:danieloltmanns@knurt.de">Daniel Oltmanns</a><br />
+version: 0.20080823<br />
+copyright: <a href="http://www.knurt.de">KNURT Systeme</a><br />
+license: <a href="license.html">GPL 3</a><br />
+<div style="margin-top: 20px; margin-bottom: 20px;"><hr style="1px solid black" /></div>
+	</div>
+	<div>
+	This calls a function on all local or foreign anchors (<span style="color: #000000"><span style="color: #0000BB">HTMLAnchorElement</span></span>) on the entire page or on a part of the page.
+	</div>
+	<div>
+		Example 1: Give all foreign anchors on your page a green color:
+		<table style="font: 15px Consolas, 'andale mono', 'monotype.com', 'lucida console', monospace;"><tr><td>1</td><td><span style="color: #000000"><span style="color: #0000BB"></span><span style="color: #007700">var&nbsp;</span><span style="color: #0000BB">at&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AnchorTagger</span><span style="color: #007700">();</span></span></td></tr><tr><td>2</td><td><span style="color: #000000"><span style="color: #0000BB">at</span><span style="color: #007700">.</span><span style="color: #0000BB">tagForeign</span><span style="color: #007700">(function(</span><span style="color: #0000BB">el</span><span style="color: #007700">){</span><span style="color: #0000BB">el</span><span style="color: #007700">.</span><span style="color: #0000BB">setStyle</span><span style="color: #007700">({</span><span style="color: #0000BB">color</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'green'</span><span style="color: #007700">});});</span></span></td></tr></table>
+	</div>
+	<div>
+		Example 2: Hide all your local anchors in your menu (a div-element with the id 'menu'):
+		<table style="font: 15px Consolas, 'andale mono', 'monotype.com', 'lucida console', monospace;"><tr><td>1</td><td><span style="color: #000000"><span style="color: #0000BB"></span><span style="color: #007700">var&nbsp;</span><span style="color: #0000BB">at&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AnchorTagger</span><span style="color: #007700">({</span><span style="color: #0000BB">area</span><span style="color: #007700">:&nbsp;$(</span><span style="color: #DD0000">'menu'</span><span style="color: #007700">)});</span></span></td></tr><tr><td>2</td><td><span style="color: #000000"><span style="color: #0000BB">at</span><span style="color: #007700">.</span><span style="color: #0000BB">tagLocal</span><span style="color: #007700">(</span><span style="color: #0000BB">Element</span><span style="color: #007700">.</span><span style="color: #0000BB">hide</span><span style="color: #007700">);</span></span></td></tr></table>
+	</div></div><div class="content"><div class="foa"><h3>constructor: initialize([options])</h3></div><div class="foacontent"><div>
+	Construct an AnchorTagger.
+	</div>
+	<div>
+		<strong>param</strong> <span style="color: rgb(0, 119, 0);">element</span> <span style="color: rgb(0, 0, 187);">area</span>:<br />&nbsp;&nbsp;&nbsp;the area in the DOM, that links shall be tagged. (Default: the entire document)<br />
+	</div>
+	<div>
+	Example 1: <span style="color: #000000"><span style="color: #0000BB"></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">AnchorTagger</span><span style="color: #007700">()</span></span><br />
+	Example 2: <span style="color: #000000"><span style="color: #0000BB"></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">AnchorTagger</span><span style="color: #007700">({</span><span style="color: #0000BB">area</span><span style="color: #007700">:&nbsp;$(</span><span style="color: #DD0000">'myarea'</span><span style="color: #007700">)});</span></span>
+	</div></div><div class="foa"><h3>attribute: foreignAnchors</h3></div><div class="foacontent">An Array of all your <span style="color: #000000"><span style="color: #0000BB"></span><span style="color: #007700">&lt;</span><span style="color: #0000BB">a</span><span style="color: #007700">&gt;</span></span> elements, that links on another site but yours.</div><div class="foa"><h3>function: isLocalAnchor(el)</h3></div><div class="foacontent"><div>
+		Return <span style="color: #000000"><span style="color: #0000BB">true</span></span>, if the given <span style="color: #000000"><span style="color: #0000BB"></span><span style="color: #007700">&lt;</span><span style="color: #0000BB">a</span><span style="color: #007700">&gt;</span></span>-element <span style="color: #000000"><span style="color: #0000BB">el</span></span> links on your site. Otherwise <span style="color: #000000"><span style="color: #0000BB">false</span></span>.
+	</div>
+	<div>
+		<strong>param</strong> <span style="color: rgb(0, 119, 0);">HtmlAnchorElement</span> <span style="color: rgb(0, 0, 187);">el</span>:<br />&nbsp;&nbsp;&nbsp;that shall be checked<br />
+	</div></div><div class="foa"><h3>function: tagLocal(func)</h3></div><div class="foacontent"><div>
+		Call the given function <span style="color: #000000"><span style="color: #0000BB">func</span></span> on all the local anchors.
+	</div>
+	<div>
+		<strong>param</strong> <span style="color: rgb(0, 119, 0);">function</span> <span style="color: rgb(0, 0, 187);">func</span>:<br />&nbsp;&nbsp;&nbsp;that is executed on all local anchors<br />
+	</div></div><div class="foa"><h3>function: tagForeign(func)</h3></div><div class="foacontent"><div>
+		Call the given function <span style="color: #000000"><span style="color: #0000BB">func</span></span> on all the foreign anchors.
+	</div>
+	<div>
+		<strong>param</strong> <span style="color: rgb(0, 119, 0);">function</span> <span style="color: rgb(0, 0, 187);">func</span>:<br />&nbsp;&nbsp;&nbsp;that is executed on all foreign anchors<br />
+	</div></div></div></body></html>

@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>AjaxSeparator Demo</title>
+		<script type="text/javascript" src="pathto/prototype.js"></script>
+		<script type="text/javascript" src="pathto/jsscrollwork/AjaxSeparator.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var idArray = [12, 145, 2, 23, 25, 'la', 'le', 'lu', 'foo', 3.2, 'bar'];
+				var countUnits = idArray.length;
+				var url = 'exampleAjaxSeparator.php';
+				var partLength = 3;
+				var onPartSuccess = function(answer, restArray) {
+					$('output').innerHTML += 'Answer: ' + answer.responseText + '\n' + restArray.length + ' units left.\n\n';
+				}
+				var onFinalSuccess = function(answer, idArray) {
+					$('output').innerHTML += 'DONE';
+				}
+				AjaxSeparator.getContent(idArray, url, partLength, onPartSuccess, onFinalSuccess);
+			}
+		</script>
+	</head>
+	<body>
+		<pre id="output"></pre>
+	</body>
+</html>

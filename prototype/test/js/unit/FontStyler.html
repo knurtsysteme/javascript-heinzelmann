@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>dialogConfirm.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="./../../../lib/prototype/prototype.js" type="text/javascript"></script>
+  <script src="./../../../src/prototype-scrollwork.js" type="text/javascript"></script>
+  <script src="unittest.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../test.css" type="text/css" />
+</head>
+<body>
+<h1>FontStyler</h1>
+<p>
+  Tests the class <code>FontStyler</code>
+</p>
+
+<!-- Log output -->
+<div id="testlog"></div>
+<div id="mylog"></div>
+
+<!-- Tests follow -->
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+
+	new Test.Unit.Runner
+	(
+		{
+			testIcon : function()
+			{ with(this)
+				{
+					var fs = new FontStyler();
+					assertNotNull(fs);
+					assertNotNull(fs.getFontNames());
+					var fsselect = fs.getFontsAsSelect();
+					$('mylog').innerHTML += fsselect;
+					assertNotNull(fsselect);
+					fsselect = fs.getFontSizesAsSelect();
+					$('mylog').innerHTML = fsselect;
+					assertNotNull(fsselect);
+				}
+			}
+		},
+		"testlog"
+	);
+	
+// ]]>
+</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /*! serializeObject v 0.02 by http://www.knurtsysteme.de
- * License: http://produkte.knurtsysteme.de/license */
+ * License: MIT License */
 if(typeof(jQuery)=='undefined') throw("require jQuery");
 /**
 * build an object of form elements like http://api.jquery.com/serializeArray does.

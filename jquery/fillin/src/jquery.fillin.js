@@ -1,5 +1,5 @@
 /*! serializeObject v 0.00 by http://www.knurtsysteme.de
- * License: http://produkte.knurtsysteme.de/license */
+ * License: MIT License */
 console.error('do not use version 0.00!');
 if (typeof (jQuery) == 'undefined')
   throw ("require jQuery");

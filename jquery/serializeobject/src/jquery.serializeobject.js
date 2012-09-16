@@ -27,5 +27,5 @@ if(typeof(jQuery)=='undefined') throw("require jQuery");
     		}
     	});
     	return result;
-    }
+    };
 })(jQuery);

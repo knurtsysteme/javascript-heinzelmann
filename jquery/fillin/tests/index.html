@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="jquery-latest.js"></script>
+<link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+<script type="text/javascript" src="qunit.js"></script>
+<script type="text/javascript" src="../src/jquery.fillin.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    test("toObject", function() {
+      ok($('#test-area'), 'have test-area');
+      var testObject = {
+        a : 'va',
+        b : 'vb',
+        c : 'vc',
+        d : 'vd',
+        e : 'on',
+        f : 'vf2',
+        g : 'vg',
+        h : 'vh2',
+        i : ['vi2', 'vi3'],
+        j : false,
+        k : '',
+        l : null
+      };
+      var result = $("#test-area").fillIn(testObject);
+      ok($('input[name=a]').val() == 'va', 'text');
+      ok($('input[name=b]').val() == 'vb', 'email');
+      ok($('input[name=c]').val() == 'vc', 'hidden');
+      ok($('input[name=d]').val() == 'vd', 'password');
+      ok($('input[name=e]').is(':checked'), 'checkbox checked');
+      ok($('input[name=f][value=vf2]').is(':checked'), 'radio checked');
+      ok($('textarea[name=g]').val() == 'vg', 'textarea');
+      ok($('select[name=h]').val() == 'vh2', 'select one');
+      ok($('select[name=i]').val().length == 2, 'select many 2 selected');
+      ok($('select[name=i]').val()[0] == 'vi2', 'select many 1st selection');
+      ok($('select[name=i]').val()[1] == 'vi3', 'select many 2nd selection');
+      ok(!$('input[name=j]').is(':checked'), 'checkbox not checked on false');
+      ok(!$('input[name=k]').is(':checked'), 'checkbox not checked on empty string');
+      ok(!$('input[name=l]').is(':checked'), 'checkbox not checked on null');
+      ok(result == 12, 'get count of inputs made was ' + result);
+    });
+  });
+</script>
+</head>
+<body>
+  <h1 id="qunit-header">Test jquery.serializeObject.js</h1>
+  <h2 id="qunit-banner"></h2>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">test markup, will be hidden</div>
+  <div id="test-area">
+    <p>
+      <input type="text" name="a" />
+    </p>
+    <p>
+      <input type="email" name="b" />
+    </p>
+    <p>
+      <input type="hidden" name="c" />
+    </p>
+    <p>
+      <input type="password" name="d" />
+    </p>
+    <p>
+      <input type="checkbox" name="e" />
+    </p>
+    <p>
+      <input type="radio" name="f" value="vf1" />
+      <input type="radio" name="f" value="vf2" />
+      <input type="radio" name="f" value="vf3" />
+    </p>
+    <p>
+      <textarea name="g" cols="5" rows="5"></textarea>
+    </p>
+    <p>
+      <select name="h" size="1">
+        <option value="vh1">vh1</option>
+        <option value="vh2">vh2</option>
+        <option value="vh3">vh3</option>
+      </select>
+    </p>
+    <p>
+      <select name="i" size="3" multiple="multiple">
+        <option value="vi1">vi1</option>
+        <option value="vi2">vi2</option>
+        <option value="vi3">vi3</option>
+      </select>
+    </p>
+    <p>
+      <input type="checkbox" name="j" checked="checked" />
+    </p>
+    <p>
+      <input type="checkbox" name="k" checked="checked" />
+    </p>
+    <p>
+      <input type="checkbox" name="l" checked="checked" />
+    </p>
+  </div>
+</body>
+</html>
+

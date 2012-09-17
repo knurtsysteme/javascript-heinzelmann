@@ -22,7 +22,12 @@
         i : ['vi2', 'vi3'],
         j : false,
         k : '',
-        l : null
+        l : null,
+        m : {'1' : 'vm2', 2 : null, '3' : 'vm4'},
+        n : 1,
+        o : 0,
+        p : -1,
+        q : ['message', 'wrong datatypes interpreted as false']
       };
       var result = $("#test-area").fillIn(testObject);
       ok($('input[name=a]').val() == 'va', 'text');
@@ -39,7 +44,14 @@
       ok(!$('input[name=j]').is(':checked'), 'checkbox not checked on false');
       ok(!$('input[name=k]').is(':checked'), 'checkbox not checked on empty string');
       ok(!$('input[name=l]').is(':checked'), 'checkbox not checked on null');
-      ok(result == 12, 'get count of inputs made was ' + result);
+      ok($('select[name=m]').val().length == 2, 'select many 2 selected');
+      ok($('select[name=m]').val()[0] == 'vm2', 'select many 1st selection');
+      ok($('select[name=m]').val()[1] == 'vm4', 'select many 2nd selection');
+      ok($('input[name=n]').is(':checked'), 'checkbox checked on 1');
+      ok(!$('input[name=o]').is(':checked'), 'checkbox not checked on 0');
+      ok(!$('input[name=p]').is(':checked'), 'checkbox not checked on -1');
+      ok(!$('input[name=q]').is(':checked'), 'checkbox not checked on wrong data types');
+      ok(result == 17, 'get count of elements found ' + result);
     });
   });
 </script>
@@ -96,6 +108,26 @@
     </p>
     <p>
       <input type="checkbox" name="l" checked="checked" />
+    </p>
+    <p>
+      <select name="m" size="3" multiple="multiple">
+        <option value="vm1">vm1</option>
+        <option value="vm2">vm2</option>
+        <option value="vm3">vm3</option>
+        <option value="vm4">vm4</option>
+      </select>
+    </p>
+    <p>
+      <input type="checkbox" name="n" />
+    </p>
+    <p>
+      <input type="checkbox" name="o" checked="checked" />
+    </p>
+    <p>
+      <input type="checkbox" name="p" checked="checked" />
+    </p>
+    <p>
+      <input type="checkbox" name="q" checked="checked" />
     </p>
   </div>
 </body>

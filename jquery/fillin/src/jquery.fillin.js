@@ -72,7 +72,7 @@ if (typeof jQuery == 'undefined')
     };
   }
 
-  $.fn.fillIn = function(params) {
+  jQuery.fn.fillIn = function(params) {
     var fic = new FillInController(params);
     fic.fillIn();
     return fic.getCount();
